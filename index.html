@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<header>
+  <link rel='stylesheet' type='text/css' href='style.css'>
+  <h1 style="text-align:center; font-size:50px; ">slicing fruit</h1>
+  
+  <div id="link">
+		<img id="btnLink" src="images/share1.png"></div>
+  <div id="rule" >
+		<img id="btnRule" src="images/info.png" style="height:25px; width:25px;"></div>
+  <div>
+	<audio id="bgMusic">
+    <source = src="sound/menu.mp3" type="audio/mp3">
+	<source = src="sound/menu.ogg" type="audio/ogg">
+	</audio>
+	
+	<audio id="sliceMusic">
+    <source = src="sound/splatter.mp3" type="audio/mp3">
+	<source = src="sound/splatter.ogg" type="audio/ogg">
+	</audio>
+  </div>
+</header>
+  
+<body onload="ondraw();">
+ 
+  <div class="main">
+  
+	   <div class="left"></div>
+			
+			<div class="showFruit">
+				<div class = "apple" >
+					<img src="images/fruit/apple.png" id="apple" style="height:60px; width: 60px;"></div>
+				<div class = "banana">
+					<img src="images/fruit/banana.png" id="banana" style="height:60px; width: 80px;"></div>
+				<div class = "basaha">
+					<img src="images/fruit/basaha.png" id="basaha" style="height:60px; width: 60px;"></div>
+				<div class = "peach">
+					<img src="images/fruit/peach.png" id="peach" style="height:60px; width: 60px;"></div>
+				<div class = "Ranking">
+					<button id="btnRanking">Ranking</button></div>
+				<div id="showRank" "></div>
+				
+		</div>
+		
+	   <div class="box_center">
+	   
+	   <canvas id="canvas" width="1200" height="600"></canvas>
+	   
+	   </div>
+	   <div class="right">
+			
+			<div style="border-style:dashed; height:150px; width: 150px">請拖曳炸彈至下方</div>
+			<div id="output" style="border-style:double; height:150px; width: 150px"
+							ondragenter=" event.stopPropagation(); event.preventDefault();"
+							ondragover="event.stopPropagation(); event.preventDefault();"
+							ondrop="event.stopPropagation(); event.preventDefault(); <!--dodrop(event)-->;"> 
+							<img id="bbomb" src="images/fruit/bomb.png" ></div>
+			
+			
+	
+   
+ 
+   </div>
+   
+   
+</body>
+
+<script src="scripts/tttest.js"></script>
+
+</html>
