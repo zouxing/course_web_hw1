@@ -1,0 +1,182 @@
+
+
+html {
+    margin: 0;
+    padding: 0;
+	height:100%;
+	background-color:#82a43a;
+	
+}
+
+body {
+	 margin: 0;
+    padding: 0;
+	height:750px;
+	
+    
+}
+
+header {
+	margin: 0;
+	
+	height:150px;
+	<!--background-color:#82a43a;-->
+	
+}
+
+header h1 {
+    margin: 0;
+}
+
+#link {
+	position:absolute;
+	top:20px;
+	right:60px;
+	
+	
+}
+
+#rule {
+	position:absolute;
+	top:20px;
+	right:20px;
+
+}
+
+#btnFB {
+	position:absolute;
+	top:20px;
+	right:70px;
+}
+
+#btnTT {
+	position:absolute;
+	top:20px;
+	right:100px;
+}
+
+
+
+.main {
+	margin: 0;
+    padding: 0;
+	display:grid;
+	width:100%;
+	height:100%;
+	
+	grid-template-columns:1fr 5fr 1fr;
+	<!--grid-template: 10% 50% 10%;-->
+	
+}
+
+
+
+.left {
+  <!--background-color: beige;-->
+  height:100%;
+  color: black;
+  grid-area: 1/1/span 1/ span 1;
+}
+
+.box_center {
+	<!--background-color: pink;-->
+	height:100%;
+  //color: grey;
+  grid-area: 1/2/span 1/ span 1;
+}
+
+.right {
+	<!--background-color: blue;-->
+	height:100%;
+  color: green;
+  grid-area: 1/3/span 1/ span 1;
+	
+}
+
+canvas{
+            display: block;
+            position: absolute;
+            border: 1px solid #fff;
+            background-color: #333333;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+			
+			z-index:4;
+}
+
+.showFruit{
+	margin: 0;
+    padding: 0;
+	//display:grid;
+	width:100%;
+	height:100%;
+	
+	//grid-template-rows:1fr 1fr 1fr 1fr;
+}
+
+.apple {
+	
+	position: absolute;
+	top:150px;
+	left:20px;
+	
+	//border-style:solid;
+	//border-color:blue;
+	
+	
+	//grid-area: 1/1/span 1/ span 1;
+}
+
+.banana {
+	
+	position: absolute;
+	top:250px;
+	left:20px;
+	//grid-area: 2/1/span 1/ span 1;
+}
+
+.peach {
+	
+	position: absolute;
+	top:350px;
+	left:20px;
+	//grid-area: 3/1/span 1/ span 1;
+}
+
+.basaha {
+	
+	position: absolute;
+	top:450px;
+	left:20px;
+	//grid-area: 4/1/span 1/ span 1;
+}
+
+.Ranking {
+	position: absolute;
+	top:550px;
+	left:20px;
+}
+
+#showRank {
+	position: absolute;
+	top:570px;
+	left:20px;
+}
+
+#btnStart {
+	position: absolute;
+	top:500px;
+	left:500px;
+	
+	
+	
+	color:white;
+	padding: 50px;
+	border-style : solid;
+	bolder-color : white:
+	z-index:100;
+}
+
