@@ -4,7 +4,9 @@ html {
     margin: 0;
     padding: 0;
 	height:100%;
-	background-color:#82a43a;
+	//background-color:#82a43a;
+	/background-color:#B0BCBF;
+	background-color:#CCDEDD;
 	
 }
 
@@ -20,6 +22,7 @@ header {
 	margin: 0;
 	
 	height:150px;
+	//background-color:#82a43a;
 	<!--background-color:#82a43a;-->
 	
 }
@@ -103,6 +106,7 @@ canvas{
             bottom: 0;
             left: 0;
             right: 0;
+			//background:url("images/background.jpg");
 			
 			z-index:4;
 }
@@ -178,5 +182,14 @@ canvas{
 	border-style : solid;
 	bolder-color : white:
 	z-index:100;
+}
+
+.dragTxt {
+	 
+	height:150px; 
+	width: 150px ;
+	border-color:black; 
+	color:black;
+	text-align: center;
 }
 

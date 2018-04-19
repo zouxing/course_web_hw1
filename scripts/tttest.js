@@ -46,6 +46,7 @@ function ondraw() {
 			
 		var defaultFruit = new Image();
 		defaultFruit.src ="images/fruit/apple.png";
+		var defaultFruitName = "apple";
 		
 		var lp = new Image();
 		lp.src ="images/score.png";
@@ -57,6 +58,7 @@ function ondraw() {
 		err2.src ="images/xx.png";
 		
 		var err3 = new Image();
+		//err3.src ="images/xxxf.png";
 		err3.src ="images/xxx.png";
 		
 		<!-- var defaultFruit = document.getElementById("apple"); -->
@@ -88,8 +90,8 @@ function ondraw() {
 			
 			<!--drawKnift(mousePos); -->
 			
-			if(mousePos.x < x + (defaultFruit.width/2) && (mousePos.x > x - (defaultFruit.width/2))){
-				if((mousePos.y < y + (defaultFruit.height/2)) && (mousePos.y > y - (defaultFruit.height/2))){
+			if(mousePos.x < x + (defaultFruit.width) && (mousePos.x > x )){
+				if((mousePos.y < y + (defaultFruit.height)) && (mousePos.y > y )){
 					if(isBomb == 0){
 						var audio1 = document.getElementById("sliceMusic");
 						audio1.play();
@@ -97,7 +99,8 @@ function ondraw() {
 						createFruit();
 					}
 					else{
-						gameOver();
+						sliceBomb();
+						setTimeout(gameOver(),5000);
 					}
 				}
 			
@@ -105,6 +108,36 @@ function ondraw() {
 			}
 		
 		},false);
+		
+		function sliceBomb(){
+			var audio1 = document.getElementById("boomMusic");
+			audio1.play();
+			x = Math.random()* (canvas.width*0.75);
+			y = canvas.height+30;
+			
+			startGame = "Restart Game";
+			//drawball();
+			
+			clearInterval(myVar);
+			
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.drawImage(defaultFruit,x,y);
+			ctx.drawImage(lp,20,20);
+			ctx.drawImage(err1,1000,20);
+			ctx.drawImage(err2,1050,20);
+			err3.src ="images/xxxf.png";
+			ctx.drawImage(err3,1100,20);
+			ctx.font = "30px Arial ";
+			ctx.strokeText(score,90,50);
+			ctx.font = "130px Arial ";
+			ctx.strokeText(startGame,200,350);
+			
+			
+			
+			
+			
+
+		}
 		
 		canvas.addEventListener("click", function(evt){
 			mousePos = getMousePos(canvas, evt);
@@ -177,13 +210,23 @@ function ondraw() {
 				
 				for (i=0; i<=localStorage.length-1; i++)  
 				{  
+					var tempItem;
 					key = localStorage.key(i);  
 					//alert("user: "+ key + "score is: " +localStorage.getItem(key));
+					if(localStorage.getItem(key)<10)
+					{
+						tempItem = "0" + localStorage.getItem(key);
+					}
+					else
+					{
+						tempItem = localStorage.getItem(key);
+					}
 					
-					arr.push([key,localStorage.getItem(key)]);
+					arr.push([key,tempItem]);
 					
 					
 				} 
+				
 				arr.sort(cmp);
 				
 				var ttttxt="name  score <br>";
@@ -236,21 +279,32 @@ function ondraw() {
 			if(this.id == "apple"){
 				defaultFruit.src ="images/fruit/apple.png";
 				FruitSrc = defaultFruit.src;
-				
+				this.style.border = "solid" ;
+				document.getElementById(defaultFruitName).style.border = 'hidden';
+				defaultFruitName = "apple";
 			}
 			else if(this.id == "banana"){
 				defaultFruit.src ="images/fruit/banana.png";
 				FruitSrc = defaultFruit.src;
+				this.style.border = "solid" ;
+				document.getElementById(defaultFruitName).style.border = 'hidden';
+				defaultFruitName = "banana";
 				
 			}
 			else if(this.id == "basaha"){
 				defaultFruit.src ="images/fruit/basaha.png";
 				FruitSrc = defaultFruit.src;
+				this.style.border = "solid" ;
+				document.getElementById(defaultFruitName).style.border = 'hidden';
+				defaultFruitName = "basaha";
 				
 			}
 			else{
 				defaultFruit.src ="images/fruit/peach.png";
 				FruitSrc = defaultFruit.src;
+				this.style.border = "solid" ;
+				document.getElementById(defaultFruitName).style.border = 'hidden';
+				defaultFruitName = "peach";
 				
 			}
 		}	
@@ -332,7 +386,8 @@ function ondraw() {
 					}
 					else if(errorCount ==3){
 						err3.src ="images/xxxf.png";
-						ctx.drawImage(err3,1100,20);
+						
+						sliceBomb();
 						gameOver();
 						
 					}
@@ -345,20 +400,25 @@ function ondraw() {
 		
 		function gameOver() {
 			
-			clearInterval(myVar);
+			var askNameBox = prompt("your score is :" + score.toString() + "!!! \n Please input your name!!");
+			if (askNameBox == null || askNameBox == "") {
+				//myHeading.textContent  = "nono User cancelled the prompt.";
+				console.log("nothing");
+			} 
+			else {
+				//myHeading.textContent  ="!yesy es How are you today?";
+				localStorage.setItem( askNameBox , score);
+			}
+			//clearInterval(myVar);
 			
 			//var myHeading = document.querySelector('h1');
 			//myHeading.textContent = 'GameOver!';
 			
-		var askNameBox = prompt("your score is :" + score.toString() + "!!! \n Please input your name!!");
-		if (askNameBox == null || askNameBox == "") {
-			//myHeading.textContent  = "nono User cancelled the prompt.";
-			console.log("nothing");
-		} 
-		else {
-			//myHeading.textContent  ="!yesy es How are you today?";
-			localStorage.setItem( askNameBox , score);
-		}
+			score = 0;
+			errorCount = 0;
+			err1.src ="images/x.png";
+			err2.src ="images/xx.png";
+			err3.src ="images/xxx.png";
 			
 			
 			

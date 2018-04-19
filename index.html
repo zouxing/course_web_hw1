@@ -18,6 +18,11 @@
     <source = src="sound/splatter.mp3" type="audio/mp3">
 	<source = src="sound/splatter.ogg" type="audio/ogg">
 	</audio>
+	
+	<audio id="boomMusic">
+    <source = src="sound/boom.mp3" type="audio/mp3">
+	<source = src="sound/boom.ogg" type="audio/ogg">
+	</audio>
   </div>
 </header>
   
@@ -29,7 +34,7 @@
 			
 			<div class="showFruit">
 				<div class = "apple" >
-					<img src="images/fruit/apple.png" id="apple" style="height:60px; width: 60px;"></div>
+					<img src="images/fruit/apple.png" id="apple" style="height:60px; width: 60px; border-style:solid;"></div>
 				<div class = "banana">
 					<img src="images/fruit/banana.png" id="banana" style="height:60px; width: 80px;"></div>
 				<div class = "basaha">
@@ -49,8 +54,8 @@
 	   </div>
 	   <div class="right">
 			
-			<div style="border-style:dashed; height:150px; width: 150px">請拖曳炸彈至下方</div>
-			<div id="output" style="border-style:double; height:150px; width: 150px"
+			<div class="dragTxt" style="border-style:dashed;" >請拖曳炸彈至下方</div>
+			<div id="output" class="dragTxt" style="border-style:double;"
 							ondragenter=" event.stopPropagation(); event.preventDefault();"
 							ondragover="event.stopPropagation(); event.preventDefault();"
 							ondrop="event.stopPropagation(); event.preventDefault(); <!--dodrop(event)-->;"> 
